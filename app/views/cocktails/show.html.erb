@@ -1,7 +1,16 @@
-<div class="card-product">
+<div class="card-product flex">
   <img src="<%= @cocktail.picture_url%>%" />
   <div class="card-product-infos">
     <h2>Product name</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
+    <%= link_to "Click here for the doses", new_cocktail_dose_path(@cocktail) %>
   </div>
 </div>
+
+<%= link_to 'New Dose', new_cocktail_dose_path(@cocktail), :class => "btn btn-primary shadow" %>
+	<% @cocktail.doses.each do |tail| %>
+    <div class="d-flex p-2">
+      <%= tail.description %>
+      <%= tail.ingredient.name %>
+    </div>
+  <% end %>
