@@ -1,0 +1,20 @@
+<div class="container pad20">
+  <h1 class="text-underline text-brand">Delicious cocktails</h1>
+
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+    <div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                  url('<%= cocktail.picture_url %>');">
+        <div class="card-description">
+        </div>
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="pad10">
+    <%= link_to "Add your cocktail", new_cocktail_path, class: "btn btn-primary pad20" %>
+  </div>
+</div>
